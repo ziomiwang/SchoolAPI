@@ -41,6 +41,10 @@ public class ChildService {
                 .orElseThrow();
     }
 
+    public List<Child> findAllByParentId(final Long parentId) {
+        return childRepository.findAllByParentId(parentId);
+    }
+
     public List<Child> findAllBySchoolId(final Long schoolId){
         return childRepository.findAllBySchoolId(schoolId);
     }

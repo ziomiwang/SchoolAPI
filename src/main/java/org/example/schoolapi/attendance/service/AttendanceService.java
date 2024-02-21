@@ -10,6 +10,10 @@ import org.example.schoolapi.domain.Attendance;
 import org.example.schoolapi.domain.Child;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.Month;
 import java.util.List;
 
 @Slf4j
@@ -30,7 +34,14 @@ public class AttendanceService {
         attendanceRepository.save(attendance);
     }
 
-    public List<Attendance> findAllByChildId(final Long childId){
-        return attendanceRepository.findAllByChildId(childId);
+    public List<Attendance> findAllByChildIdAndMonth(final Long childId, final Month month){
+        final LocalDateTime start = LocalDateTime.of(LocalDate.now()
+                .withDayOfMonth(1)
+                .withMonth(month.getValue()), LocalTime.of(0, 0));
+        final LocalDateTime end = LocalDateTime.of(LocalDate.now()
+                .withDayOfMonth(month.maxLength())
+                .withMonth(month.getValue()), LocalTime.of(23, 59));
+
+        return attendanceRepository.findAllByEntryDateAfterAndExitDateBeforeAndChild_Id(start, end, childId);
     }
 }
