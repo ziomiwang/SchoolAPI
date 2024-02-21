@@ -3,7 +3,7 @@ package org.example.schoolapi.parent.service;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.example.schoolapi.domain.Parent;
-import org.example.schoolapi.parent.dto.in.ParentDTO;
+import org.example.schoolapi.parent.dto.in.ParentRequest;
 import org.example.schoolapi.parent.mapper.ParentMapper;
 import org.example.schoolapi.parent.repository.ParentRepository;
 import org.springframework.stereotype.Service;
@@ -16,7 +16,7 @@ public class ParentService {
     private final ParentRepository parentRepository;
     private final ParentMapper parentMapper;
 
-    public void createParent(ParentDTO parentDTO){
+    public void createParent(ParentRequest parentDTO){
         parentRepository.save(parentMapper.map(parentDTO));
     }
 

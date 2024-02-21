@@ -1,8 +1,5 @@
-package org.example.schoolapi.parent.dto.in;
+package org.example.schoolapi.parent.dto.out;
 
-import lombok.Data;
-
-@Data
 public class ParentDTO {
 
     private String firstName;

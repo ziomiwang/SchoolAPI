@@ -5,7 +5,7 @@ import lombok.Data;
 import java.time.LocalDateTime;
 
 @Data
-public class AttendanceDTO {
+public class AttendanceRequest {
 
     private Long childId;
     private LocalDateTime entryDate;
