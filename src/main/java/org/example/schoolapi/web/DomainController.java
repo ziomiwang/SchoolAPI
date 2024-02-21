@@ -29,21 +29,21 @@ public class DomainController {
                 .build();
     }
 
-    @PostMapping("/school")
+    @PostMapping("/child")
     public ResponseEntity<String> createChild(@RequestBody final ChildRequest childDTO){
         childService.createChild(childDTO);
         return ResponseEntity.noContent()
                 .build();
     }
 
-    @PostMapping("/school")
+    @PostMapping("/parent")
     public ResponseEntity<String> createParent(@RequestBody final ParentRequest parentDTO){
         parentService.createParent(parentDTO);
         return ResponseEntity.noContent()
                 .build();
     }
 
-    @PostMapping("/school")
+    @PostMapping("/attendance")
     public ResponseEntity<String> createAttendance(@RequestBody final AttendanceRequest attendanceDTO){
         attendanceService.createAttendance(attendanceDTO);
         return ResponseEntity.noContent()
